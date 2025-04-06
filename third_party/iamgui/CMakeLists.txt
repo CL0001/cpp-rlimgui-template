@@ -1,0 +1,8 @@
+file(GLOB_RECURSE IAMGUI_SOURCES CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+file(GLOB_RECURSE IAMGUI_HEADERS CONFIGURE_DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/*.h")
+
+add_library(iamgui STATIC ${IAMGUI_SOURCES})
+
+target_include_directories(iamgui PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+
+target_link_libraries(iamgui PUBLIC raylib)
