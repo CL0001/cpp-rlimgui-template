@@ -19,7 +19,7 @@ This template relies on the following already included third-party libraries for
 Clone the repository to your desired location or download it as a .zip file:
 
 ```bash
-git clone https://github.com/CL0001/raylib-cpp-project-template.git
+git clone https://github.com/CL0001/cpp-rlimgui-template.git
 ```
 
 ### 2. Customize the Project Name and Description
