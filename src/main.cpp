@@ -1,4 +1,7 @@
 #include "main.h"
+
+#include <string>
+
 #include "imgui.h"
 #include "rlImGui.h"
 
@@ -22,7 +25,7 @@ void RunGame()
 	SetTargetFPS(144);
 	rlImGuiSetup(true);
 
-	Texture image = LoadTexture("resources/parrots.png");
+	Texture image = LoadTexture((std::string(ASSETS_PATH) + "parrots.png").c_str());
 
 	while (!WindowShouldClose())
 	{

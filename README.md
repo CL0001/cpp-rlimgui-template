@@ -75,3 +75,22 @@ cmake --build . && ./build/Debug/YourProjectName.exe
 ```
 
 > Note: Make sure to replace YourProjectName.exe with your actual executable name if you've customized it.
+
+## Template Output
+After running the template, you should see a window like this:
+
+![Image](https://github.com/user-attachments/assets/89b56cf9-fba1-4f6f-92ae-37dcfba9862a)
+
+## Using Assets
+All your game assets — including textures, fonts, audio files, and shaders — should be placed in the assets/ directory (which can be further divided into subdirectories) at the root of the project.
+
+The template automatically provides the path to this directory using a compile-time definition called ASSETS_PATH, which is set in CMakeLists.txt:
+```cmake
+target_compile_definitions(${PROJECT_NAME} PUBLIC ASSETS_PATH="${CMAKE_SOURCE_DIR}/assets/")
+```
+
+In your C++ code, you can use this macro to load assets in a platform-independent way:
+```cpp
+std::string fullPath = std::string(ASSETS_PATH) + "images/player.png";
+Texture2D playerTexture = LoadTexture(fullPath.c_str());
+```
