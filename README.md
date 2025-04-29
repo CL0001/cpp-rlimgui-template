@@ -58,7 +58,7 @@ Run the appropriate setup script for your platform, located in the `scripts` dir
 Running the script will create a `build` directory in the root of the project (where `CMakeLists.txt` is located), containing the generated solution files.
 
 If you want to add new source or header files, you must first create them manually (e.g., via File Explorer) in the appropriate directories (`src/` for source files and `include/` for headers).
-Then you need to re-run the setup script (which reconfigures CMake) to include the new files in the build. After re-running the setup script, reopen the generated solution (e.g., .sln file) to see the new files for running and debugging.
+Then you need to re-run the setup script (which reconfigures CMake) to include the new files in the build. After re-running the setup script, reload the solution to see the new files.
 
 ## Configure and Build with CMake (Any editor or IDE)
 **Configuration:**
