@@ -1,52 +1,77 @@
 # C++ Template for 2D/3D Games
 
-A modern C++ game development template using Raylib and ImGui. This template provides a solid foundation for creating 2D/3D games and cross-platform applications with a clean, organized project structure.
+A modern, cross-platform C++ game development template with everything you need to get started — just write code and run it. It uses Raylib for game development and ImGui for creating graphical user interfaces. 
 
 ## Requirements
-To build and run this template, you will need the following:
+You'll need the following tools or IDEs that contains them like Microsoft Visual Studio or Xcode:
 
-- Modern C++ (C++20) – The template is designed for C++20 for better features and optimizations.
-- CMake (version 3.16+) – For cross-platform build system support.
+- **C++20** – The template is designed with C++20 features in mind for modern syntax and better optimizations, though older versions may still work — just try changing the `CMAKE_CXX_STANDARD` value in the `CMakeLists.txt`.
+- **CMake (version 3.30+)** – Required for cross-platform builds. You can lower the required version in `CMakeLists.txt` if needed, but 3.30+ is recommended.
 
 
 ## Included Dependencies
-This template relies on the following already included third-party libraries for a smooth game development experience:
-- [Raylib](https://github.com/raysan5/raylib) (version 5.5) – A simple and easy-to-use library for graphics, audio, and input handling.
-- [Dear ImGui](https://github.com/ocornut/imgui) (version 1.91.9b) – A bloat-free immediate mode GUI library.
+This template comes with the following third-party libraries already included to streamline game development:
+- **Raylib (v5.5)** – A simple and easy-to-use library for graphics, audio, and input handling.
+- **Dear ImGui (v1.91.9b)** – A bloat-free, immediate mode GUI library.
+- **rlImGui (main branch, commit from Mar 17, 2025)** – Acts as a bridge between Raylib and Dear ImGui, enabling the integration of ImGui-based GUIs in Raylib projects.
+
+
+## Project Structure
+```
+.
+├── assets/             # Game assets like sprites, fonts, sounds, etc.
+├── build/              # Build directory (generated during the build process)
+├── include/            # Header files (.h)
+├── scripts/            # Setup and helper scripts for building/running
+├── src/                # Source files (.cpp)
+├── third_party/        # Included third-party libraries (Raylib, ImGui)
+├── CMakeLists.txt      # Root CMake configuration file
+└── README.md           # Project overview and usage instructions
+```
+
 
 ## Getting Started
-### 1. Get the Template
+Microsoft Visual Studio 2022 is recommended for Windows, and Xcode is recommended for macOS. If neither of these is available, see below for instructions on building with CMake.
+
+### 1. Download the repository:
 Clone the repository to your desired location or download it as a .zip file:
 
 ```bash
 git clone https://github.com/CL0001/cpp-rlimgui-template.git
 ```
 
-### 2. Customize the Project Name and Description
-Open the CMakeLists.txt file in the root of the project and edit the project name and description:
+### 2. Customize the project name and description:
+Open the `CMakeLists.txt` file in the root of the project and edit the project name and description:
 
 ```cmake
 project("YourProjectName" VERSION 0.1.0 DESCRIPTION "Your Project Description" LANGUAGES CXX)
 ```
 
 Replace:
-- `YourProjectName` with your desired project name.
-- `Your Project Description` with a brief description of your project.
+- `YourProjectName` with your desired project name. **Avoid spaces and special symbols, using only alphanumeric characters, hyphens, or underscores**.
+- `Your Project Description` with a brief description of your project. **Spaces and special symbols are allowed here**.
 
-### 3. Write Your Code and Add Assets
-Create your source files in the source directory and your header files in the headers directory for better organization. Add your assets (images, sounds, etc.) into the assets directory. It's also a good practice to document your project, so you can use the docs directory to store your .md files explaining the logic and other details.
 
-### 4. Build and Run the Project
-For Linux/macOS, or a Windows terminal like Git Bash:
+## Generate Visual Studio or Xcode Solution
+Run the appropriate setup script for your platform, located in the `scripts` directory. **Make sure the script has execution permission (especially for Unix-like systems).**
 
-**Initial setup:** Configure the project and generate build files. Run this once after cloning the repository:
+Running the script will create a `build` directory in the root of the project (where `CMakeLists.txt` is located), containing the generated solution files.
+
+## Configure and Build with CMake (Any editor or IDE)
+**Configuration:**
+
+Configure the project and generate build files. Run this once after cloning the repository, or when `CMakeLists.txt` has been changed, or if something fails. In the latter cases, remove the build directory and run this again:
 ```bash
-rm -rf build && mkdir build && cd build && cmake .. && cmake --build . && ./Debug/YourProjectName.exe && cd ..
+mkdir build
+cd build
+cmake ..
 ```
 
-**Subsequent builds:** After the initial configuration and when `CMakeLists.txt` has not changed, you can simply run:
+**Build:**
+
+After the initial configuration, you can simply run the following to rebuild the project:
 ```bash
-cmake --build build && ./build/Debug/YourProjectName.exe
+cmake --build . && ./build/Debug/YourProjectName.exe
 ```
 
-> Note: Make sure to replace `YourProjectName.exe` with your actual executable name if you've customized it.
+> Note: Make sure to replace YourProjectName.exe with your actual executable name if you've customized it.
