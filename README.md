@@ -84,7 +84,7 @@ cmake --build . && ./build/Debug/YourProjectName.exe
 > Note: Make sure to replace YourProjectName.exe with your actual executable name if you've customized it.
 
 ## Template Output
-After running the template, you should see a window like this:
+After successfully building and running the template sample, you should see a window like this:
 
 ![Image](https://github.com/user-attachments/assets/89b56cf9-fba1-4f6f-92ae-37dcfba9862a)
 
