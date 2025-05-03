@@ -101,3 +101,8 @@ In your C++ code, you can use this macro to load assets in a platform-independen
 std::string fullPath = std::string(ASSETS_PATH) + "images/player.png";
 Texture2D playerTexture = LoadTexture(fullPath.c_str());
 ```
+
+
+## Creating a Release Build
+When the game development is finished, run the `build_release.bat` script on Windows or `build_release.sh` on Unix-based systems, both located in the `scripts/` directory. This will generate a `game_pkg/` folder containing the final game `.exe` file along with the necessary `assets/`.
+**The release build has the console window disabled** and requires the `assets/` folder to be located in the same directory as the executable.
