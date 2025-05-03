@@ -31,7 +31,7 @@ This template comes with the following third-party libraries already included to
 
 
 ## Getting Started
-Microsoft Visual Studio 2022 is recommended for Windows, and Xcode is recommended for macOS. If neither of these is available, see below for instructions on building with CMake.
+Microsoft Visual Studio 2022 is recommended for Windows, and Xcode is recommended for macOS. If neither of these is available, see below for instructions on building with CMake only.
 
 ### 1. Download the repository:
 Clone the repository to your desired location or download it as a .zip file:
@@ -58,14 +58,14 @@ Run the appropriate setup script for your platform, located in the `scripts` dir
 Running the script will create a `build` directory in the root of the project (where `CMakeLists.txt` is located), containing the generated solution files.
 
 If you want to add new source or header files, you must first create them manually (e.g., via File Explorer) in the appropriate directories (`src/` for source files and `include/` for headers).
-Then you need to re-run the setup script (which reconfigures CMake) to include the new files in the build. After that, reload the solution in your IDE to see the updates.
+Then you need to re-run the setup script (which reconfigures the solution) to include the new files in the build. After that, reload the solution in your IDE to see the updates.
 
 ⚠️ **Warning:** If the configuration fails or you're seeing strange build issues, delete the `build/` directory entirely and run the appropriate setup script again from scratch.
 
 ## Configure and Build with CMake (Any editor or IDE)
 **Configuration:**
 
-Configure the project and generate build files. Run this once after cloning the repository, or when `CMakeLists.txt` has been changed, or if something fails. In the latter cases, remove the build directory and run this again:
+Configure the project and generate build files. Run this once after cloning the repository, or when `CMakeLists.txt` has been changed. In the latter cases, remove the build directory and run this again:
 ```bash
 mkdir build
 cd build
@@ -76,7 +76,7 @@ cmake ..
 
 **Build:**
 
-After the initial configuration, you can simply run the following to rebuild the project:
+After the initial configuration, run the following to build the project:
 ```bash
 cmake --build . && ./build/Debug/YourProjectName.exe
 ```
@@ -89,7 +89,7 @@ After successfully building and running the template sample, you should see a wi
 ![Image](https://github.com/user-attachments/assets/89b56cf9-fba1-4f6f-92ae-37dcfba9862a)
 
 ## Using Assets
-All your game assets — including textures, fonts, audio files, and shaders — should be placed in the assets/ directory (which can be further divided into subdirectories) at the root of the project.
+All your game assets — including textures, fonts, audio files, and shaders — should be placed in the `assets/` directory (which can be further divided into subdirectories) at the root of the project.
 
 The template automatically provides the path to this directory using a compile-time definition called ASSETS_PATH, which is set in CMakeLists.txt:
 ```cmake
